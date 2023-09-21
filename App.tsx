@@ -31,20 +31,18 @@ const Lake = () => {
     <View style={styles.main}>
       <View style={lakeStylesArray}>
         <Frog name="1"/>
-
         <Frog name="2" color='yellow'/>
         <Frog name="3" color='red'/>
 
       </View>
       <View style={styles.buttons}>
 
-        <Button    onPress={() => { setExNumber(1);      }}    title={'Кнопка 1'}      />
-        <Button    onPress={() => { setExNumber(2);      }}    title={'Кнопка 2'}      />
-        <Button    onPress={() => { setExNumber(3);      }}    title={'Кнопка 3'}      /> 
-
-        <Button  onPress={() => { setExNumber(4);}} title={'Кнопка 4'}  />
-        <Button  onPress={() => { setExNumber(5);}} title={'Кнопка 5'}  />
-        <Button onPress={() => { setExNumber(6);}} title={'Кнопка 6'}  />
+        <Button onPress={() => {setExNumber(1);}} title={'Кнопка 1'} />
+        <Button onPress={() => {setExNumber(2);}} title={'Кнопка 2'} />
+        <Button onPress={() => {setExNumber(3);}} title={'Кнопка 3'} /> 
+        <Button onPress={() => {setExNumber(4);}} title={'Кнопка 4'}  />
+        <Button onPress={() => {setExNumber(5);}} title={'Кнопка 5'}  />
+        <Button onPress={() => {setExNumber(6);}} title={'Кнопка 6'}  />
       </View>
       <Text>Номер текущей задачи = {exNumber}</Text>
     </View>
