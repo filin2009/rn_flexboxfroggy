@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, Button, Text, View} from 'react-native';
+import {StyleSheet, Button, Text, View, Pressable} from 'react-native';
 
 type FrogProps = {
   name: string;
@@ -10,6 +10,19 @@ const Frog = (props: FrogProps) => {
   const frogStylesArray = StyleSheet.compose(styles.frog, {backgroundColor: props.color,});
   return (
     <View style={frogStylesArray}> <Text> {props.name}</Text> </View>
+  );
+};
+
+type RoundButtonProps = {
+  exNumberButton: number;
+  onPressHandler: Function;
+}
+const RoundButton = (props: RoundButtonProps) => {
+  const buttonTitle = '№'+ props.exNumberButton;
+  return (
+        <Pressable onPress={() => props.onPressHandler(props.exNumberButton)} style={styles.roundButton}>
+          <Text>{buttonTitle}</Text>
+        </Pressable>
   );
 };
 
@@ -36,13 +49,15 @@ const Lake = () => {
 
       </View>
       <View style={styles.buttons}>
-
-        <Button onPress={() => {setExNumber(1);}} title={'Кнопка 1'} />
-        <Button onPress={() => {setExNumber(2);}} title={'Кнопка 2'} />
-        <Button onPress={() => {setExNumber(3);}} title={'Кнопка 3'} /> 
-        <Button onPress={() => {setExNumber(4);}} title={'Кнопка 4'}  />
-        <Button onPress={() => {setExNumber(5);}} title={'Кнопка 5'}  />
-        <Button onPress={() => {setExNumber(6);}} title={'Кнопка 6'}  />
+        <RoundButton onPressHandler={setExNumber} exNumberButton={1} />
+        <RoundButton onPressHandler={setExNumber} exNumberButton={2} />
+        <RoundButton onPressHandler={setExNumber} exNumberButton={3} />
+        <RoundButton onPressHandler={setExNumber} exNumberButton={4} />
+        <RoundButton onPressHandler={setExNumber} exNumberButton={5} />
+        <RoundButton onPressHandler={setExNumber} exNumberButton={6} />
+        <RoundButton onPressHandler={setExNumber} exNumberButton={7} />
+        <RoundButton onPressHandler={setExNumber} exNumberButton={8} />
+        <RoundButton onPressHandler={setExNumber} exNumberButton={9} />
       </View>
       <Text>Номер текущей задачи = {exNumber}</Text>
     </View>
@@ -64,6 +79,17 @@ const styles = StyleSheet.create({
   buttons: {
     height: '25%',
     backgroundColor: 'gray',
+    flexWrap: 'wrap',
+    //flexDirection: 'row',
+    justifyContent: 'space-around'
+  },
+  roundButton: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: 'cornflowerblue',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   frog: {
      backgroundColor: 'green',
